@@ -1,0 +1,489 @@
+2025-03-22 09:37:40,396 - ERROR - Erro ao conectar ao navegador: Message: session not created: cannot connect to chrome at 127.0.0.1:9222
+from chrome not reachable
+Stacktrace:
+#0 0x5e9996a41ffa <unknown>
+#1 0x5e99965007c3 <unknown>
+#2 0x5e99964eb773 <unknown>
+#3 0x5e999653fdfc <unknown>
+#4 0x5e99965358f3 <unknown>
+#5 0x5e9996586bd9 <unknown>
+#6 0x5e9996586106 <unknown>
+#7 0x5e9996578063 <unknown>
+#8 0x5e9996544328 <unknown>
+#9 0x5e9996545491 <unknown>
+#10 0x5e9996a0942b <unknown>
+#11 0x5e9996a0d2ec <unknown>
+#12 0x5e99969f0a22 <unknown>
+#13 0x5e9996a0de64 <unknown>
+#14 0x5e99969d4bef <unknown>
+#15 0x5e9996a30558 <unknown>
+#16 0x5e9996a30736 <unknown>
+#17 0x5e9996a40e76 <unknown>
+#18 0x7c96cba9caa4 <unknown>
+#19 0x7c96cbb29c3c <unknown>
+
+2025-03-22 09:37:40,396 - ERROR - Erro durante a execução da automação: Message: session not created: cannot connect to chrome at 127.0.0.1:9222
+from chrome not reachable
+Stacktrace:
+#0 0x5e9996a41ffa <unknown>
+#1 0x5e99965007c3 <unknown>
+#2 0x5e99964eb773 <unknown>
+#3 0x5e999653fdfc <unknown>
+#4 0x5e99965358f3 <unknown>
+#5 0x5e9996586bd9 <unknown>
+#6 0x5e9996586106 <unknown>
+#7 0x5e9996578063 <unknown>
+#8 0x5e9996544328 <unknown>
+#9 0x5e9996545491 <unknown>
+#10 0x5e9996a0942b <unknown>
+#11 0x5e9996a0d2ec <unknown>
+#12 0x5e99969f0a22 <unknown>
+#13 0x5e9996a0de64 <unknown>
+#14 0x5e99969d4bef <unknown>
+#15 0x5e9996a30558 <unknown>
+#16 0x5e9996a30736 <unknown>
+#17 0x5e9996a40e76 <unknown>
+#18 0x7c96cba9caa4 <unknown>
+#19 0x7c96cbb29c3c <unknown>
+
+2025-03-22 09:39:11,748 - INFO - Conectado ao navegador com sucesso
+2025-03-22 09:39:18,142 - ERROR - Erro durante o fluxo de atendimento: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: Unable to receive message from renderer
+  (Session info: chrome=134.0.6998.117)
+Stacktrace:
+#0 0x64ef7dabcffa <unknown>
+#1 0x64ef7d57b970 <unknown>
+#2 0x64ef7d562d0d <unknown>
+#3 0x64ef7d5629ef <unknown>
+#4 0x64ef7d560739 <unknown>
+#5 0x64ef7d56117f <unknown>
+#6 0x64ef7d5708bb <unknown>
+#7 0x64ef7d589dbe <unknown>
+#8 0x64ef7d5904cb <unknown>
+#9 0x64ef7d561890 <unknown>
+#10 0x64ef7d5895c5 <unknown>
+#11 0x64ef7d619a4a <unknown>
+#12 0x64ef7d5f3063 <unknown>
+#13 0x64ef7d5bf328 <unknown>
+#14 0x64ef7d5c0491 <unknown>
+#15 0x64ef7da8442b <unknown>
+#16 0x64ef7da882ec <unknown>
+#17 0x64ef7da6ba22 <unknown>
+#18 0x64ef7da88e64 <unknown>
+#19 0x64ef7da4fbef <unknown>
+#20 0x64ef7daab558 <unknown>
+#21 0x64ef7daab736 <unknown>
+#22 0x64ef7dabbe76 <unknown>
+#23 0x7a799c49caa4 <unknown>
+#24 0x7a799c529c3c <unknown>
+
+2025-03-22 09:39:18,143 - ERROR - Erro ao processar atendimento: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: Unable to receive message from renderer
+  (Session info: chrome=134.0.6998.117)
+Stacktrace:
+#0 0x64ef7dabcffa <unknown>
+#1 0x64ef7d57b970 <unknown>
+#2 0x64ef7d562d0d <unknown>
+#3 0x64ef7d5629ef <unknown>
+#4 0x64ef7d560739 <unknown>
+#5 0x64ef7d56117f <unknown>
+#6 0x64ef7d5708bb <unknown>
+#7 0x64ef7d589dbe <unknown>
+#8 0x64ef7d5904cb <unknown>
+#9 0x64ef7d561890 <unknown>
+#10 0x64ef7d5895c5 <unknown>
+#11 0x64ef7d619a4a <unknown>
+#12 0x64ef7d5f3063 <unknown>
+#13 0x64ef7d5bf328 <unknown>
+#14 0x64ef7d5c0491 <unknown>
+#15 0x64ef7da8442b <unknown>
+#16 0x64ef7da882ec <unknown>
+#17 0x64ef7da6ba22 <unknown>
+#18 0x64ef7da88e64 <unknown>
+#19 0x64ef7da4fbef <unknown>
+#20 0x64ef7daab558 <unknown>
+#21 0x64ef7daab736 <unknown>
+#22 0x64ef7dabbe76 <unknown>
+#23 0x7a799c49caa4 <unknown>
+#24 0x7a799c529c3c <unknown>
+
+2025-03-22 09:40:14,330 - INFO - Conectado ao navegador com sucesso
+2025-03-22 09:40:19,975 - ERROR - Erro durante o fluxo de atendimento: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: Unable to receive message from renderer
+  (Session info: chrome=134.0.6998.117)
+Stacktrace:
+#0 0x57f1ee823ffa <unknown>
+#1 0x57f1ee2e2970 <unknown>
+#2 0x57f1ee2c9d0d <unknown>
+#3 0x57f1ee2c99ef <unknown>
+#4 0x57f1ee2c7739 <unknown>
+#5 0x57f1ee2c817f <unknown>
+#6 0x57f1ee2d78bb <unknown>
+#7 0x57f1ee2f0dbe <unknown>
+#8 0x57f1ee2f74cb <unknown>
+#9 0x57f1ee2c8890 <unknown>
+#10 0x57f1ee2f05c5 <unknown>
+#11 0x57f1ee380a4a <unknown>
+#12 0x57f1ee35a063 <unknown>
+#13 0x57f1ee326328 <unknown>
+#14 0x57f1ee327491 <unknown>
+#15 0x57f1ee7eb42b <unknown>
+#16 0x57f1ee7ef2ec <unknown>
+#17 0x57f1ee7d2a22 <unknown>
+#18 0x57f1ee7efe64 <unknown>
+#19 0x57f1ee7b6bef <unknown>
+#20 0x57f1ee812558 <unknown>
+#21 0x57f1ee812736 <unknown>
+#22 0x57f1ee822e76 <unknown>
+#23 0x7da33709caa4 <unknown>
+#24 0x7da337129c3c <unknown>
+
+2025-03-22 09:40:19,975 - ERROR - Erro ao processar atendimento: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: Unable to receive message from renderer
+  (Session info: chrome=134.0.6998.117)
+Stacktrace:
+#0 0x57f1ee823ffa <unknown>
+#1 0x57f1ee2e2970 <unknown>
+#2 0x57f1ee2c9d0d <unknown>
+#3 0x57f1ee2c99ef <unknown>
+#4 0x57f1ee2c7739 <unknown>
+#5 0x57f1ee2c817f <unknown>
+#6 0x57f1ee2d78bb <unknown>
+#7 0x57f1ee2f0dbe <unknown>
+#8 0x57f1ee2f74cb <unknown>
+#9 0x57f1ee2c8890 <unknown>
+#10 0x57f1ee2f05c5 <unknown>
+#11 0x57f1ee380a4a <unknown>
+#12 0x57f1ee35a063 <unknown>
+#13 0x57f1ee326328 <unknown>
+#14 0x57f1ee327491 <unknown>
+#15 0x57f1ee7eb42b <unknown>
+#16 0x57f1ee7ef2ec <unknown>
+#17 0x57f1ee7d2a22 <unknown>
+#18 0x57f1ee7efe64 <unknown>
+#19 0x57f1ee7b6bef <unknown>
+#20 0x57f1ee812558 <unknown>
+#21 0x57f1ee812736 <unknown>
+#22 0x57f1ee822e76 <unknown>
+#23 0x7da33709caa4 <unknown>
+#24 0x7da337129c3c <unknown>
+
+2025-03-22 09:42:06,932 - INFO - Tentando conectar ao Chrome...
+2025-03-22 09:42:07,049 - INFO - Conectado ao Chrome com sucesso. URL atual: https://ozia.app/desktop#
+2025-03-22 09:42:07,057 - INFO - Procurando último atendimento...
+2025-03-22 09:42:17,442 - ERROR - Tempo excedido ao aguardar elemento: Message: 
+Stacktrace:
+#0 0x598732fffffa <unknown>
+#1 0x598732abe970 <unknown>
+#2 0x598732b10385 <unknown>
+#3 0x598732b105b1 <unknown>
+#4 0x598732b5f3c4 <unknown>
+#5 0x598732b362bd <unknown>
+#6 0x598732b5c70c <unknown>
+#7 0x598732b36063 <unknown>
+#8 0x598732b02328 <unknown>
+#9 0x598732b03491 <unknown>
+#10 0x598732fc742b <unknown>
+#11 0x598732fcb2ec <unknown>
+#12 0x598732faea22 <unknown>
+#13 0x598732fcbe64 <unknown>
+#14 0x598732f92bef <unknown>
+#15 0x598732fee558 <unknown>
+#16 0x598732fee736 <unknown>
+#17 0x598732ffee76 <unknown>
+#18 0x7fd15d09caa4 <unknown>
+#19 0x7fd15d129c3c <unknown>
+
+2025-03-22 09:42:17,442 - ERROR - Erro ao processar atendimento: Message: 
+Stacktrace:
+#0 0x598732fffffa <unknown>
+#1 0x598732abe970 <unknown>
+#2 0x598732b10385 <unknown>
+#3 0x598732b105b1 <unknown>
+#4 0x598732b5f3c4 <unknown>
+#5 0x598732b362bd <unknown>
+#6 0x598732b5c70c <unknown>
+#7 0x598732b36063 <unknown>
+#8 0x598732b02328 <unknown>
+#9 0x598732b03491 <unknown>
+#10 0x598732fc742b <unknown>
+#11 0x598732fcb2ec <unknown>
+#12 0x598732faea22 <unknown>
+#13 0x598732fcbe64 <unknown>
+#14 0x598732f92bef <unknown>
+#15 0x598732fee558 <unknown>
+#16 0x598732fee736 <unknown>
+#17 0x598732ffee76 <unknown>
+#18 0x7fd15d09caa4 <unknown>
+#19 0x7fd15d129c3c <unknown>
+
+2025-03-22 09:47:56,083 - INFO - Tentando conectar ao Chrome...
+2025-03-22 09:47:56,189 - INFO - Conectado ao Chrome com sucesso. URL atual: https://ozia.app/desktop#
+2025-03-22 09:47:56,193 - INFO - Procurando último atendimento...
+2025-03-22 09:48:06,423 - ERROR - Tempo excedido ao aguardar elemento: Message: 
+Stacktrace:
+#0 0x5fcc740f9ffa <unknown>
+#1 0x5fcc73bb8970 <unknown>
+#2 0x5fcc73c0a385 <unknown>
+#3 0x5fcc73c0a5b1 <unknown>
+#4 0x5fcc73c593c4 <unknown>
+#5 0x5fcc73c302bd <unknown>
+#6 0x5fcc73c5670c <unknown>
+#7 0x5fcc73c30063 <unknown>
+#8 0x5fcc73bfc328 <unknown>
+#9 0x5fcc73bfd491 <unknown>
+#10 0x5fcc740c142b <unknown>
+#11 0x5fcc740c52ec <unknown>
+#12 0x5fcc740a8a22 <unknown>
+#13 0x5fcc740c5e64 <unknown>
+#14 0x5fcc7408cbef <unknown>
+#15 0x5fcc740e8558 <unknown>
+#16 0x5fcc740e8736 <unknown>
+#17 0x5fcc740f8e76 <unknown>
+#18 0x7d25b069caa4 <unknown>
+#19 0x7d25b0729c3c <unknown>
+
+2025-03-22 09:48:06,423 - ERROR - Erro ao processar atendimento: Message: 
+Stacktrace:
+#0 0x5fcc740f9ffa <unknown>
+#1 0x5fcc73bb8970 <unknown>
+#2 0x5fcc73c0a385 <unknown>
+#3 0x5fcc73c0a5b1 <unknown>
+#4 0x5fcc73c593c4 <unknown>
+#5 0x5fcc73c302bd <unknown>
+#6 0x5fcc73c5670c <unknown>
+#7 0x5fcc73c30063 <unknown>
+#8 0x5fcc73bfc328 <unknown>
+#9 0x5fcc73bfd491 <unknown>
+#10 0x5fcc740c142b <unknown>
+#11 0x5fcc740c52ec <unknown>
+#12 0x5fcc740a8a22 <unknown>
+#13 0x5fcc740c5e64 <unknown>
+#14 0x5fcc7408cbef <unknown>
+#15 0x5fcc740e8558 <unknown>
+#16 0x5fcc740e8736 <unknown>
+#17 0x5fcc740f8e76 <unknown>
+#18 0x7d25b069caa4 <unknown>
+#19 0x7d25b0729c3c <unknown>
+
+2025-03-22 09:48:14,082 - INFO - Procurando último atendimento...
+2025-03-22 09:48:24,302 - ERROR - Tempo excedido ao aguardar elemento: Message: 
+Stacktrace:
+#0 0x5fcc740f9ffa <unknown>
+#1 0x5fcc73bb8970 <unknown>
+#2 0x5fcc73c0a385 <unknown>
+#3 0x5fcc73c0a5b1 <unknown>
+#4 0x5fcc73c593c4 <unknown>
+#5 0x5fcc73c302bd <unknown>
+#6 0x5fcc73c5670c <unknown>
+#7 0x5fcc73c30063 <unknown>
+#8 0x5fcc73bfc328 <unknown>
+#9 0x5fcc73bfd491 <unknown>
+#10 0x5fcc740c142b <unknown>
+#11 0x5fcc740c52ec <unknown>
+#12 0x5fcc740a8a22 <unknown>
+#13 0x5fcc740c5e64 <unknown>
+#14 0x5fcc7408cbef <unknown>
+#15 0x5fcc740e8558 <unknown>
+#16 0x5fcc740e8736 <unknown>
+#17 0x5fcc740f8e76 <unknown>
+#18 0x7d25b069caa4 <unknown>
+#19 0x7d25b0729c3c <unknown>
+
+2025-03-22 09:48:24,303 - ERROR - Erro ao processar atendimento: Message: 
+Stacktrace:
+#0 0x5fcc740f9ffa <unknown>
+#1 0x5fcc73bb8970 <unknown>
+#2 0x5fcc73c0a385 <unknown>
+#3 0x5fcc73c0a5b1 <unknown>
+#4 0x5fcc73c593c4 <unknown>
+#5 0x5fcc73c302bd <unknown>
+#6 0x5fcc73c5670c <unknown>
+#7 0x5fcc73c30063 <unknown>
+#8 0x5fcc73bfc328 <unknown>
+#9 0x5fcc73bfd491 <unknown>
+#10 0x5fcc740c142b <unknown>
+#11 0x5fcc740c52ec <unknown>
+#12 0x5fcc740a8a22 <unknown>
+#13 0x5fcc740c5e64 <unknown>
+#14 0x5fcc7408cbef <unknown>
+#15 0x5fcc740e8558 <unknown>
+#16 0x5fcc740e8736 <unknown>
+#17 0x5fcc740f8e76 <unknown>
+#18 0x7d25b069caa4 <unknown>
+#19 0x7d25b0729c3c <unknown>
+
+2025-03-22 09:49:42,007 - INFO - Tentando conectar ao Chrome...
+2025-03-22 09:49:42,105 - INFO - Conectado ao Chrome com sucesso. URL atual: https://ozia.app/desktop#
+2025-03-22 09:49:42,108 - INFO - Procurando último atendimento...
+2025-03-22 09:49:52,271 - ERROR - Tempo excedido ao aguardar elemento: Message: 
+Stacktrace:
+#0 0x596a3c3bdffa <unknown>
+#1 0x596a3be7c970 <unknown>
+#2 0x596a3bece385 <unknown>
+#3 0x596a3bece5b1 <unknown>
+#4 0x596a3bf1d3c4 <unknown>
+#5 0x596a3bef42bd <unknown>
+#6 0x596a3bf1a70c <unknown>
+#7 0x596a3bef4063 <unknown>
+#8 0x596a3bec0328 <unknown>
+#9 0x596a3bec1491 <unknown>
+#10 0x596a3c38542b <unknown>
+#11 0x596a3c3892ec <unknown>
+#12 0x596a3c36ca22 <unknown>
+#13 0x596a3c389e64 <unknown>
+#14 0x596a3c350bef <unknown>
+#15 0x596a3c3ac558 <unknown>
+#16 0x596a3c3ac736 <unknown>
+#17 0x596a3c3bce76 <unknown>
+#18 0x7c95b0c9caa4 <unknown>
+#19 0x7c95b0d29c3c <unknown>
+
+2025-03-22 09:49:52,271 - ERROR - Erro ao processar atendimento: Message: 
+Stacktrace:
+#0 0x596a3c3bdffa <unknown>
+#1 0x596a3be7c970 <unknown>
+#2 0x596a3bece385 <unknown>
+#3 0x596a3bece5b1 <unknown>
+#4 0x596a3bf1d3c4 <unknown>
+#5 0x596a3bef42bd <unknown>
+#6 0x596a3bf1a70c <unknown>
+#7 0x596a3bef4063 <unknown>
+#8 0x596a3bec0328 <unknown>
+#9 0x596a3bec1491 <unknown>
+#10 0x596a3c38542b <unknown>
+#11 0x596a3c3892ec <unknown>
+#12 0x596a3c36ca22 <unknown>
+#13 0x596a3c389e64 <unknown>
+#14 0x596a3c350bef <unknown>
+#15 0x596a3c3ac558 <unknown>
+#16 0x596a3c3ac736 <unknown>
+#17 0x596a3c3bce76 <unknown>
+#18 0x7c95b0c9caa4 <unknown>
+#19 0x7c95b0d29c3c <unknown>
+
+2025-03-22 10:00:28,306 - INFO - Coordenadas salvas com sucesso!
+2025-03-22 10:00:46,045 - INFO - Clicando no último atendimento...
+2025-03-22 10:00:49,058 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:00:52,061 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:00:54,063 - INFO - Confirmando finalização...
+2025-03-22 10:00:57,066 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:02:00,971 - INFO - Clicando no último atendimento...
+2025-03-22 10:02:03,985 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:02:06,987 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:02:08,989 - INFO - Confirmando finalização...
+2025-03-22 10:02:11,992 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:04:52,238 - INFO - Clicando no último atendimento...
+2025-03-22 10:04:55,241 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:04:58,243 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:05:00,245 - INFO - Confirmando finalização...
+2025-03-22 10:05:03,248 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:08:12,881 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:08:12,881 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:08:17,309 - INFO - Clicando no último atendimento...
+2025-03-22 10:08:20,322 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:08:23,324 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:08:25,328 - INFO - Confirmando finalização...
+2025-03-22 10:08:28,332 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:08:31,332 - INFO - Clicando no último atendimento...
+2025-03-22 10:08:34,337 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:08:37,340 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:08:39,343 - INFO - Confirmando finalização...
+2025-03-22 10:09:39,882 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:09:39,882 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:10:53,030 - INFO - Clicando no último atendimento...
+2025-03-22 10:10:56,080 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:10:59,086 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:11:01,088 - INFO - Confirmando finalização...
+2025-03-22 10:11:04,091 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:11:08,092 - INFO - Clicando no último atendimento...
+2025-03-22 10:11:11,143 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:13:26,471 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:13:26,471 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:14:05,527 - INFO - Clicando no último atendimento...
+2025-03-22 10:14:08,537 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:14:11,539 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:14:13,541 - INFO - Confirmando finalização...
+2025-03-22 10:14:16,544 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:14:19,544 - INFO - Clicando no último atendimento...
+2025-03-22 10:14:22,547 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:14:23,378 - INFO - Tecla 'q' pressionada. Finalizando automação...
+2025-03-22 10:14:25,549 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:14:27,551 - INFO - Confirmando finalização...
+2025-03-22 10:14:30,554 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:16:20,604 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:16:20,604 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:16:41,574 - INFO - Clicando no último atendimento...
+2025-03-22 10:16:44,585 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:16:47,587 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:16:49,590 - INFO - Confirmando finalização...
+2025-03-22 10:16:52,592 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:16:55,592 - INFO - Clicando no último atendimento...
+2025-03-22 10:16:58,169 - INFO - Tecla 'q' pressionada. Finalizando automação...
+2025-03-22 10:16:58,595 - INFO - Automação interrompida com sucesso!
+2025-03-22 10:20:03,005 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:20:03,005 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:20:04,621 - INFO - Clicando no último atendimento...
+2025-03-22 10:20:07,630 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:20:10,633 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:20:12,635 - INFO - Confirmando finalização...
+2025-03-22 10:20:15,637 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:20:18,638 - INFO - Clicando no último atendimento...
+2025-03-22 10:20:21,332 - INFO - Tecla 'q' pressionada. Finalizando automação...
+2025-03-22 10:20:21,644 - INFO - Automação interrompida com sucesso!
+2025-03-22 10:20:47,562 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:20:47,563 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:20:48,138 - INFO - Clicando no último atendimento...
+2025-03-22 10:20:51,145 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:20:54,148 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:20:56,150 - INFO - Confirmando finalização...
+2025-03-22 10:20:59,152 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:21:02,152 - INFO - Clicando no último atendimento...
+2025-03-22 10:21:05,155 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:21:08,157 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:21:10,159 - INFO - Confirmando finalização...
+2025-03-22 10:21:13,162 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:21:16,162 - INFO - Clicando no último atendimento...
+2025-03-22 10:21:19,165 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:21:22,169 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:21:24,171 - INFO - Confirmando finalização...
+2025-03-22 10:21:27,173 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:21:30,174 - INFO - Clicando no último atendimento...
+2025-03-22 10:21:33,176 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:21:36,178 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:21:38,181 - INFO - Confirmando finalização...
+2025-03-22 10:21:41,183 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:21:44,183 - INFO - Clicando no último atendimento...
+2025-03-22 10:21:47,186 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:21:50,188 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:21:52,191 - INFO - Confirmando finalização...
+2025-03-22 10:21:55,193 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:21:58,193 - INFO - Clicando no último atendimento...
+2025-03-22 10:22:01,196 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:22:03,640 - INFO - Tecla 'q' pressionada. Finalizando automação...
+2025-03-22 10:22:04,198 - INFO - Automação interrompida com sucesso!
+2025-03-22 10:51:09,252 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:51:09,253 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:52:22,635 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:52:22,635 - INFO - Coordenadas carregadas com sucesso!
+2025-03-22 10:53:04,393 - INFO - Clicando no último atendimento...
+2025-03-22 10:53:09,907 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:53:12,410 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:53:14,912 - INFO - Confirmando finalização...
+2025-03-22 10:53:17,414 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:53:20,414 - INFO - Clicando no último atendimento...
+2025-03-22 10:53:25,918 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:53:28,420 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:53:30,922 - INFO - Confirmando finalização...
+2025-03-22 10:53:33,424 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:53:36,424 - INFO - Clicando no último atendimento...
+2025-03-22 10:53:41,927 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:53:44,429 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 10:53:46,932 - INFO - Confirmando finalização...
+2025-03-22 10:53:49,434 - INFO - Atendimento finalizado com sucesso!
+2025-03-22 10:53:52,435 - INFO - Clicando no último atendimento...
+2025-03-22 10:53:57,937 - INFO - Clicando no botão de finalizar...
+2025-03-22 10:54:00,439 - INFO - Desmarcando checkbox de mensagem...
+2025-03-22 11:02:12,832 - ERROR - Erro durante a execução da automação: 
+2025-03-22 11:02:18,110 - ERROR - Erro durante a execução da automação: 
+2025-03-22 11:02:18,115 - ERROR - Erro durante a execução da automação: 
