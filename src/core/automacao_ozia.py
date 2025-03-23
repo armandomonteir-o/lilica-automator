@@ -4,7 +4,6 @@ import time
 import os
 import logging
 from pynput import keyboard
-from pathlib import Path
 
 # Configuração do logging
 logging.basicConfig(

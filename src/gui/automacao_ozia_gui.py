@@ -7,7 +7,6 @@ import logging
 from pathlib import Path
 from threading import Thread, Event
 from queue import Queue
-import tkinter as tk
 
 # Configuração do logging
 logging.basicConfig(
