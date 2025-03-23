@@ -21,7 +21,9 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-tk python3-dev xvfb
+          sudo apt-get install -y python3-tk python3-dev xvfb xauth
+          sudo touch /home/runner/.Xauthority
+          sudo chmod 777 /home/runner/.Xauthority
 
       - name: Install dependencies
         run: |
@@ -30,7 +32,11 @@ jobs:
           pip install pytest pytest-xvfb
 
       - name: Run tests
+        env:
+          DISPLAY: ":99.0"
         run: |
+          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          sleep 3
           pytest tests/ -v
 
   test-windows:
