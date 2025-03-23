@@ -4,14 +4,26 @@
 
 ## 📋 Índice
 
-- [Funcionalidades](#-funcionalidades)
-- [Instalação](#-instalação)
-- [Como Usar](#-como-usar)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Tecnologias](#-tecnologias)
-- [Desenvolvimento](#-desenvolvimento)
-- [Conceitos Aplicados](#-conceitos-aplicados)
-- [Roadmap de Estudo](#-roadmap-de-estudo)
+- [🤖 Lilica Automator](#-lilica-automator)
+  - [📋 Índice](#-índice)
+  - [✨ Funcionalidades](#-funcionalidades)
+  - [🚀 Instalação](#-instalação)
+    - [Windows](#windows)
+    - [Linux](#linux)
+  - [🎮 Como Usar](#-como-usar)
+  - [📁 Estrutura do Projeto](#-estrutura-do-projeto)
+  - [🛠 Tecnologias](#-tecnologias)
+  - [💻 Desenvolvimento](#-desenvolvimento)
+    - [Configuração do Ambiente](#configuração-do-ambiente)
+    - [Build Manual](#build-manual)
+      - [Windows](#windows-1)
+      - [Linux](#linux-1)
+  - [🎓 Conceitos Aplicados](#-conceitos-aplicados)
+    - [Python](#python)
+    - [GitHub Actions](#github-actions)
+  - [📚 Roadmap de Estudo](#-roadmap-de-estudo)
+  - [📄 Licença](#-licença)
+  - [👥 Contribuição](#-contribuição)
 
 ## ✨ Funcionalidades
 
