@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
 
-datas = []
+datas = [('src/utils/coordenadas.json', '.')]
 binaries = []
 hiddenimports = []
 tmp_ret = collect_all('customtkinter')
@@ -9,7 +9,7 @@ datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
 
 
 a = Analysis(
-    ['automacao_ozia_gui.py'],
+    ['src/gui/automacao_ozia_gui.py'],
     pathex=[],
     binaries=binaries,
     datas=datas,
@@ -32,7 +32,7 @@ exe = EXE(
     name='automacao_ozia',
     debug=False,
     bootloader_ignore_signals=False,
-    strip=False,
+    strip=True,
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,

@@ -7,11 +7,17 @@ import logging
 from pathlib import Path
 from threading import Thread, Event
 from queue import Queue
+import gc  # Para controle de garbage collection
 
-# Configuração do logging
+# Reduzir intervalo do PyAutoGUI
+pyautogui.MINIMUM_DURATION = 0  # Remove delays artificiais
+pyautogui.MINIMUM_SLEEP = 0  # Remove delays artificiais
+pyautogui.PAUSE = 0.1  # Reduz pausa entre ações
+
+# Configuração do logging mais eficiente
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
+    format="%(asctime)s - %(message)s",  # Formato simplificado
     handlers=[logging.FileHandler("automacao_ozia.log"), logging.StreamHandler()],
 )
 logger = logging.getLogger(__name__)
@@ -24,6 +30,12 @@ pyautogui.PAUSE = 0.5
 class AutomacaoOziaGUI(ctk.CTk):
     def __init__(self):
         super().__init__()
+
+        # Desativa garbage collection automático
+        gc.disable()
+
+        # Cache de widgets frequentemente acessados
+        self._cached_widgets = {}
 
         # Configurações da janela
         self.title("Automação Ozia 🌸")
@@ -376,63 +388,56 @@ class AutomacaoOziaGUI(ctk.CTk):
         )
 
     def executar_automacao(self):
-        while self.continuar_automacao.is_set():
-            try:
-                while True:
+        """Executa a automação em loop."""
+        try:
+            while self.continuar_automacao.is_set():
+                # Executa garbage collection manualmente
+                gc.collect()
+
+                try:
                     # 1. Clicar no último atendimento e aguardar tecla
-                    self.adicionar_log("🖱️ Clicando no último atendimento...")
+                    if not self.continuar_automacao.is_set():
+                        break
+
+                    self.adicionar_log("🖱️ Clicando...")
                     pyautogui.click(**self.coordenadas["ultimo_atendimento"])
-                    time.sleep(0.2)  # Reduzido para 0.2
 
                     # Aguardar CTRL ou ALT
                     resposta = self.aguardar_tecla()
 
+                    if not self.continuar_automacao.is_set():
+                        break
+
                     if resposta == "sim":
-                        break  # Sai do loop de seleção e vai para a finalização
-                    elif resposta == "não":
-                        # Um único scroll suave para cima
-                        self.adicionar_log("⬆️ Próximo atendimento...")
+                        # Processo otimizado após confirmação
+                        pyautogui.click(**self.coordenadas["botao_finalizar"])
+                        pyautogui.click(**self.coordenadas["checkbox_mensagem"])
+                        pyautogui.click(**self.coordenadas["botao_confirmar"])
+
+                        self.adicionar_log("✨ Concluído!")
+
+                        if not self.continuar_automacao.is_set():
+                            break
+
+                        # Prepara próximo
+                        pyautogui.click(**self.coordenadas["ultimo_atendimento"])
                         pyautogui.scroll(self.valor_scroll.get())
-                        time.sleep(0.1)  # Reduzido para 0.1
+                    elif resposta == "não":
+                        pyautogui.scroll(self.valor_scroll.get())
 
-                if not self.continuar_automacao.is_set():
+                except pyautogui.FailSafeException as e:
+                    self.adicionar_log(f"❌ Erro: {str(e)}")
+                    self.parar_automacao()
                     break
 
-                # Processo mais rápido após confirmação
-                # 2. Clicar no botão de finalizar
-                self.adicionar_log("✔️ Finalizando...")
-                pyautogui.click(**self.coordenadas["botao_finalizar"])
-                time.sleep(0.1)
+        except Exception as e:
+            self.adicionar_log(f"❌ Erro: {str(e)}")
+            self.parar_automacao()
 
-                if not self.continuar_automacao.is_set():
-                    break
-
-                # 3. Desmarcar checkbox de mensagem
-                pyautogui.click(**self.coordenadas["checkbox_mensagem"])
-                time.sleep(0.1)
-
-                if not self.continuar_automacao.is_set():
-                    break
-
-                # 4. Clicar no botão de confirmar
-                pyautogui.click(**self.coordenadas["botao_confirmar"])
-                time.sleep(0.1)
-
-                self.adicionar_log("✨ Atendimento finalizado!")
-
-                # Após finalizar, já prepara o próximo atendimento
-                time.sleep(0.2)  # Pequena pausa para garantir que a página atualizou
-
-                # Clica no último atendimento e faz scroll automaticamente
-                self.adicionar_log("🔄 Preparando próximo atendimento...")
-                pyautogui.click(**self.coordenadas["ultimo_atendimento"])
-                time.sleep(0.1)
-                pyautogui.scroll(self.valor_scroll.get())
-
-            except Exception as e:
-                self.adicionar_log(f"❌ Erro: {str(e)}")
-                self.parar_automacao()
-                break
+        finally:
+            # Garante que a automação seja marcada como parada
+            self.continuar_automacao.clear()
+            self.btn_iniciar.configure(text="Iniciar Automação")
 
     def iniciar_automacao(self):
         if not self.coordenadas:
@@ -446,15 +451,26 @@ class AutomacaoOziaGUI(ctk.CTk):
         self.thread_automacao.start()
 
     def parar_automacao(self):
+        """Para a automação e garante que a thread seja finalizada."""
         self.continuar_automacao.clear()
         self.btn_iniciar.configure(text="Iniciar Automação")
         self.adicionar_log("🛑 Automação interrompida!")
+
+        # Garante que a thread seja finalizada
+        if self.thread_automacao and self.thread_automacao.is_alive():
+            self.thread_automacao.join(timeout=2)
+            if self.thread_automacao.is_alive():
+                self.adicionar_log("⚠️ Thread não finalizou normalmente!")
 
     def toggle_automacao(self):
         if self.continuar_automacao.is_set():
             self.parar_automacao()
         else:
             self.iniciar_automacao()
+
+    def __del__(self):
+        # Reativa garbage collection ao fechar
+        gc.enable()
 
 
 if __name__ == "__main__":

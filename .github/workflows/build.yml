@@ -8,7 +8,53 @@ on:
   workflow_dispatch:
 
 jobs:
+  test-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-tk python3-dev xvfb
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-xvfb
+
+      - name: Run tests
+        run: |
+          pytest tests/ -v
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run tests
+        run: |
+          pytest tests/ -v
+
   lint:
+    needs: [test-linux, test-windows]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +75,7 @@ jobs:
           flake8 src/ --count --max-line-length=100 --ignore=E402,E501 --statistics
 
   build-windows:
+    needs: [lint]
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -51,7 +98,7 @@ jobs:
 
       - name: Create Windows Executable
         run: |
-          pyinstaller --noconfirm --onefile --windowed --name="Automacao Ozia" src/gui/automacao_ozia_gui.py --add-data "version.txt;." --add-data "src/utils/coordenadas.json;." --collect-all customtkinter
+          pyinstaller --noconfirm --onefile --windowed --name="Automacao Ozia" src/gui/automacao_ozia_gui.py --add-data "version.txt;." --add-data "src/utils/coordenadas.json;." --collect-all customtkinter --clean --strip --noupx
 
       - name: Upload Windows Artifact
         uses: actions/upload-artifact@v4
@@ -87,7 +134,7 @@ jobs:
 
       - name: Create Linux Executable
         run: |
-          pyinstaller --noconfirm --onefile --windowed --name="automacao_ozia" src/gui/automacao_ozia_gui.py --add-data "version.txt:." --add-data "src/utils/coordenadas.json:." --collect-all customtkinter
+          pyinstaller --noconfirm --onefile --windowed --name="automacao_ozia" src/gui/automacao_ozia_gui.py --add-data "version.txt:." --add-data "src/utils/coordenadas.json:." --collect-all customtkinter --clean --strip --noupx
 
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v4

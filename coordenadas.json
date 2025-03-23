@@ -1,0 +1,18 @@
+{
+    "ultimo_atendimento": {
+        "x": 321,
+        "y": 1007
+    },
+    "botao_finalizar": {
+        "x": 1384,
+        "y": 169
+    },
+    "checkbox_mensagem": {
+        "x": 886,
+        "y": 628
+    },
+    "botao_confirmar": {
+        "x": 1027,
+        "y": 715
+    }
+}
