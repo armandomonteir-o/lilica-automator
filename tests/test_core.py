@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 import sys
 import os
 
@@ -10,11 +10,37 @@ from src.core.automacao_ozia import AutomacaoOzia
 
 
 class TestAutomacaoOzia(unittest.TestCase):
-    """Testes para a classe AutomacaoOzia."""
+    """Testes para a classe core da automação."""
 
     def setUp(self):
         """Configuração inicial para cada teste."""
         self.automacao = AutomacaoOzia()
+
+    def tearDown(self):
+        """Limpeza após cada teste."""
+        if hasattr(self, "automacao"):
+            self.automacao.continuar_automacao.clear()
+
+    def test_carregar_coordenadas(self):
+        """Testa o carregamento de coordenadas."""
+        # Teste com arquivo inexistente
+        self.assertFalse(self.automacao.carregar_coordenadas())
+
+        # Teste com coordenadas válidas
+        self.automacao.coordenadas = {
+            "ultimo_atendimento": {"x": 100, "y": 100},
+            "botao_finalizar": {"x": 200, "y": 200},
+        }
+        self.assertTrue(self.automacao.salvar_coordenadas())
+        self.assertTrue(self.automacao.carregar_coordenadas())
+
+    def test_salvar_coordenadas(self):
+        """Testa o salvamento de coordenadas."""
+        self.automacao.coordenadas = {
+            "ultimo_atendimento": {"x": 100, "y": 100},
+            "botao_finalizar": {"x": 200, "y": 200},
+        }
+        self.assertTrue(self.automacao.salvar_coordenadas())
 
     @patch("pyautogui.click")
     def test_clicar_coordenada(self, mock_click):
