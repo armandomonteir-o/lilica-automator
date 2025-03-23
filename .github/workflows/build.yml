@@ -92,13 +92,36 @@ jobs:
           name: Automacao-Ozia-Linux
           path: linux-dist
 
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            windows-dist/*
-            linux-dist/*
-          name: Release ${{ github.sha }}
-          tag_name: v${{ github.run_number }}
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release ${{ github.sha }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Windows Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./windows-dist/Automacao Ozia.exe
+          asset_name: Automacao-Ozia-Windows.exe
+          asset_content_type: application/octet-stream
+
+      - name: Upload Linux Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./linux-dist/automacao_ozia
+          asset_name: automacao_ozia_linux
+          asset_content_type: application/octet-stream
