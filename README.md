@@ -161,3 +161,5 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## 👥 Contribuição
 
 Contribuições são bem-vindas! Por favor, leia o [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes sobre nosso código de conduta e o processo de submissão de pull requests.
+
+![Cobertura de Testes](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/armandomonteir-o/GIST_ID/raw/coverage.json)
