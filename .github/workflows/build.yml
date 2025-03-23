@@ -31,7 +31,7 @@ jobs:
 
       - name: Create Windows Executable
         run: |
-          pyinstaller --noconfirm --onefile --windowed --name="Automacao Ozia" automacao_ozia_gui.py --add-data "version.txt;." --collect-all customtkinter
+          pyinstaller --noconfirm --onefile --windowed --name="Automacao Ozia" src/gui/automacao_ozia_gui.py --add-data "version.txt;." --add-data "src/utils/coordenadas.json;." --collect-all customtkinter
 
       - name: Upload Windows Artifact
         uses: actions/upload-artifact@v4
@@ -67,7 +67,7 @@ jobs:
 
       - name: Create Linux Executable
         run: |
-          pyinstaller --noconfirm --onefile --windowed --name="automacao_ozia" automacao_ozia_gui.py --add-data "version.txt:." --collect-all customtkinter
+          pyinstaller --noconfirm --onefile --windowed --name="automacao_ozia" src/gui/automacao_ozia_gui.py --add-data "version.txt:." --add-data "src/utils/coordenadas.json:." --collect-all customtkinter
 
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v4

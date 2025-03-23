@@ -1,80 +1,151 @@
-# Automação Ozia 🌸
+# 🤖 Lilica Automator
 
-Um aplicativo de automação com interface gráfica para otimizar o processo de finalização de atendimentos.
+> Automatização inteligente para serviços da Ozia, com interface gráfica amigável e suporte para Windows e Linux.
 
-## Funcionalidades
+## 📋 Índice
 
-- Interface gráfica amigável com tema rosa
-- Captura de coordenadas para automatização
-- Controle de velocidade de scroll ajustável
-- Atalhos de teclado para operação rápida
-- Logs detalhados das operações
+- [Funcionalidades](#-funcionalidades)
+- [Instalação](#-instalação)
+- [Como Usar](#-como-usar)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Tecnologias](#-tecnologias)
+- [Desenvolvimento](#-desenvolvimento)
+- [Conceitos Aplicados](#-conceitos-aplicados)
+- [Roadmap de Estudo](#-roadmap-de-estudo)
+
+## ✨ Funcionalidades
+
+- Interface gráfica moderna com CustomTkinter
+- Automação de serviços com PyAutoGUI
+- Controle de velocidade de scroll
+- Atalhos de teclado para finalizar (CTRL) ou pular (ALT) serviços
 - Disponível para Windows e Linux
+- Logs detalhados das operações
 
-## Como Usar
-
-### Windows
-
-1. Baixe o arquivo "Automacao Ozia.exe" da seção Releases
-2. Execute o arquivo baixado
-3. Clique em "Capturar Coordenadas" e siga as instruções
-4. Ajuste a velocidade do scroll conforme necessário
-5. Clique em "Iniciar Automação"
-
-### Linux
-
-1. Baixe o arquivo "automacao_ozia" da seção Releases
-2. Abra o terminal na pasta onde baixou o arquivo
-3. Dê permissão de execução: `chmod +x automacao_ozia`
-4. Execute: `./automacao_ozia`
-5. Siga as mesmas instruções da versão Windows
-
-### Atalhos
-
-- `CTRL`: Finalizar atendimento atual
-- `ALT`: Ver próximo atendimento
-- `Q`: Parar automação
-
-## Download
-
-Baixe a última versão do executável na seção [Releases](../../releases) do GitHub:
-
-- Windows: Arquivo `.exe`
-- Linux: Arquivo executável sem extensão
-
-## Desenvolvimento
-
-Para desenvolver ou modificar o aplicativo:
-
-1. Clone o repositório
-2. Crie um ambiente virtual: `python -m venv venv`
-3. Ative o ambiente virtual:
-   - Windows: `venv\Scripts\activate`
-   - Linux/Mac: `source venv/bin/activate`
-4. Instale as dependências: `pip install -r requirements.txt`
-5. Execute: `python automacao_ozia_gui.py`
-
-## Build Manual
+## 🚀 Instalação
 
 ### Windows
 
-```bash
-pyinstaller --noconfirm --onefile --windowed --name="Automacao Ozia" automacao_ozia_gui.py --collect-all customtkinter
-```
+1. Baixe o executável mais recente da [página de releases](https://github.com/armandomonteir-o/lilica-automator/releases)
+2. Execute o arquivo `Automacao-Ozia-Windows.exe`
 
 ### Linux
 
-```bash
-# Instale as dependências do sistema
-sudo apt-get install python3-tk python3-dev
+1. Baixe o executável mais recente da [página de releases](https://github.com/armandomonteir-o/lilica-automator/releases)
+2. Dê permissão de execução:
+   ```bash
+   chmod +x automacao_ozia_linux
+   ```
+3. Execute o arquivo:
+   ```bash
+   ./automacao_ozia_linux
+   ```
 
-# Crie o executável
-pyinstaller --noconfirm --onefile --windowed --name="automacao_ozia" automacao_ozia_gui.py --collect-all customtkinter
+## 🎮 Como Usar
+
+1. Inicie o programa
+2. Ajuste a velocidade de scroll (1-3)
+3. Clique em "Iniciar Automação"
+4. Use os atalhos:
+   - CTRL: Finalizar serviço atual
+   - ALT: Pular para próximo serviço
+
+## 📁 Estrutura do Projeto
+
+```
+lilica-automator/
+├── src/                      # Código fonte
+│   ├── gui/                  # Interface gráfica
+│   │   └── automacao_ozia_gui.py
+│   ├── core/                 # Lógica principal
+│   │   └── automacao_ozia.py
+│   └── utils/               # Utilitários
+│       └── coordenadas.json
+├── scripts/                  # Scripts de inicialização
+│   ├── setup_linux.sh
+│   └── iniciar_windows.bat
+├── docs/                     # Documentação
+│   └── github-actions-roadmap.md
+├── tests/                    # Testes (futuro)
+├── .github/                  # Configurações GitHub
+│   └── workflows/
+│       └── build.yml
+├── requirements.txt          # Dependências
+└── README.md                # Documentação principal
 ```
 
-## Notas
+## 🛠 Tecnologias
 
-- O executável é criado automaticamente pelo GitHub Actions a cada push na branch main
-- São geradas versões tanto para Windows quanto para Linux
-- As coordenadas são salvas em `coordenadas.json`
-- Logs são salvos em `automacao_ozia.log`
+- Python 3.10
+- CustomTkinter
+- PyAutoGUI
+- GitHub Actions
+- PyInstaller
+
+## 💻 Desenvolvimento
+
+### Configuração do Ambiente
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/armandomonteir-o/lilica-automator.git
+   cd lilica-automator
+   ```
+
+2. Crie e ative o ambiente virtual:
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux
+   venv\Scripts\activate     # Windows
+   ```
+
+3. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Build Manual
+
+#### Windows
+
+```bash
+pyinstaller --noconfirm --onefile --windowed --name="Automacao Ozia" src/gui/automacao_ozia_gui.py --collect-all customtkinter
+```
+
+#### Linux
+
+```bash
+pyinstaller --noconfirm --onefile --windowed --name="automacao_ozia" src/gui/automacao_ozia_gui.py --collect-all customtkinter
+```
+
+## 🎓 Conceitos Aplicados
+
+### Python
+
+- Programação Orientada a Objetos
+- GUI com CustomTkinter
+- Automação com PyAutoGUI
+- Logging e tratamento de erros
+- Gerenciamento de dependências
+
+### GitHub Actions
+
+- CI/CD automatizado
+- Build multiplataforma
+- Gestão de artifacts e releases
+- Segurança e tokens
+- Workflows condicionais
+
+## 📚 Roadmap de Estudo
+
+Veja o [Roadmap Detalhado](docs/github-actions-roadmap.md) para um guia completo de aprendizado dos conceitos aplicados no projeto.
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 👥 Contribuição
+
+Contribuições são bem-vindas! Por favor, leia o [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes sobre nosso código de conduta e o processo de submissão de pull requests.
