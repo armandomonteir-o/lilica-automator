@@ -16,6 +16,7 @@ class TestAutomacaoOzia(unittest.TestCase):
     def setUp(self):
         """Configuração inicial para cada teste."""
         self.automacao = AutomacaoOzia()
+        self.automacao.continuar_automacao.set()  # Garante que o evento está setado
         # Garante que o arquivo de coordenadas não existe
         if os.path.exists(self.automacao.arquivo_config):
             os.remove(self.automacao.arquivo_config)

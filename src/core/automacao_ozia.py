@@ -20,6 +20,15 @@ pyautogui.PAUSE = 0.5  # Pausa entre ações
 
 
 class AutomacaoOzia:
+    def carregar_coordenadas(self):
+        """Carrega as coordenadas salvas do arquivo JSON"""
+        if os.path.exists(self.arquivo_config):
+            with open(self.arquivo_config, "r") as f:
+                self.coordenadas = json.load(f)
+                logger.info("Coordenadas carregadas com sucesso!")
+                return True
+        return False
+
     def __init__(self):
         self.coordenadas = {}
         self.arquivo_config = "coordenadas.json"
@@ -36,12 +45,12 @@ class AutomacaoOzia:
 
     def validar_coordenadas(self, x, y):
         """Valida se as coordenadas são válidas."""
-
-        return (isinstance(x, (int, float))
-                and isinstance(y, (int, float))
-                and x >= 0
-                and y >= 0)
-        return False
+        return (
+            isinstance(x, (int, float))
+            and isinstance(y, (int, float))
+            and x >= 0
+            and y >= 0
+        )
 
     def salvar_coordenadas(self):
         """Salva as coordenadas no arquivo JSON"""
