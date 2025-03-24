@@ -1,5 +1,6 @@
 [flake8]
 max-line-length = 100
-ignore = E203, E266, E501, W503, F403, F401
+# W503 e W504 são contraditórios - ignoramos ambos para permitir qualquer estilo
+ignore = E203, E266, E501, W503, W504, F403, F401
 max-complexity = 18
 select = B,C,E,F,W,T4,B9 
