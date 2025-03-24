@@ -76,8 +76,8 @@ jobs:
 
       - name: Run flake8
         run: |
-          # Executa flake8 ignorando alguns erros comuns e limitando a linha em 100 caracteres
-          flake8 src/ --count --max-line-length=100 --ignore=E402,E501 --statistics
+          # Usa as configurações do arquivo .flake8
+          flake8 src/ --count --statistics
 
   build-windows:
     needs: [lint]
