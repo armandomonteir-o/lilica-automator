@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import MagicMock, patch
 import sys
 import os
+import json
 
 # Adiciona o diretório src ao PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -15,32 +16,46 @@ class TestAutomacaoOzia(unittest.TestCase):
     def setUp(self):
         """Configuração inicial para cada teste."""
         self.automacao = AutomacaoOzia()
+        # Garante que o arquivo de coordenadas não existe
+        if os.path.exists(self.automacao.arquivo_config):
+            os.remove(self.automacao.arquivo_config)
 
     def tearDown(self):
         """Limpeza após cada teste."""
-        if hasattr(self, "automacao"):
-            self.automacao.continuar_automacao.clear()
+        # Remove o arquivo de coordenadas se existir
+        if os.path.exists(self.automacao.arquivo_config):
+            os.remove(self.automacao.arquivo_config)
 
     def test_carregar_coordenadas(self):
         """Testa o carregamento de coordenadas."""
         # Teste com arquivo inexistente
         self.assertFalse(self.automacao.carregar_coordenadas())
 
-        # Teste com coordenadas válidas
-        self.automacao.coordenadas = {
+        # Teste com arquivo existente
+        coordenadas = {
             "ultimo_atendimento": {"x": 100, "y": 100},
             "botao_finalizar": {"x": 200, "y": 200},
         }
-        self.assertTrue(self.automacao.salvar_coordenadas())
+        with open(self.automacao.arquivo_config, "w") as f:
+            json.dump(coordenadas, f)
+
         self.assertTrue(self.automacao.carregar_coordenadas())
+        self.assertEqual(self.automacao.coordenadas, coordenadas)
 
     def test_salvar_coordenadas(self):
         """Testa o salvamento de coordenadas."""
-        self.automacao.coordenadas = {
+        coordenadas = {
             "ultimo_atendimento": {"x": 100, "y": 100},
             "botao_finalizar": {"x": 200, "y": 200},
         }
+        self.automacao.coordenadas = coordenadas
+
         self.assertTrue(self.automacao.salvar_coordenadas())
+        self.assertTrue(os.path.exists(self.automacao.arquivo_config))
+
+        with open(self.automacao.arquivo_config, "r") as f:
+            coordenadas_salvas = json.load(f)
+        self.assertEqual(coordenadas_salvas, coordenadas)
 
     @patch("pyautogui.click")
     def test_clicar_coordenada(self, mock_click):
@@ -51,13 +66,16 @@ class TestAutomacaoOzia(unittest.TestCase):
 
     def test_validar_coordenadas(self):
         """Testa a validação de coordenadas."""
-        # Teste com coordenadas válidas
-        x, y = 100, 200
-        self.assertTrue(self.automacao.validar_coordenadas(x, y))
+        # Coordenadas válidas
+        self.assertTrue(self.automacao.validar_coordenadas(100, 100))
+        self.assertTrue(self.automacao.validar_coordenadas(0, 0))
+        self.assertTrue(self.automacao.validar_coordenadas(1.5, 2.5))
 
-        # Teste com coordenadas negativas
-        x, y = -100, -200
-        self.assertFalse(self.automacao.validar_coordenadas(x, y))
+        # Coordenadas inválidas
+        self.assertFalse(self.automacao.validar_coordenadas(-1, 100))
+        self.assertFalse(self.automacao.validar_coordenadas(100, -1))
+        self.assertFalse(self.automacao.validar_coordenadas("a", 100))
+        self.assertFalse(self.automacao.validar_coordenadas(100, "b"))
 
 
 if __name__ == "__main__":

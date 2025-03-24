@@ -4,6 +4,7 @@ import time
 import os
 import logging
 from pynput import keyboard
+from threading import Event
 
 # Configuração do logging
 logging.basicConfig(
@@ -22,9 +23,25 @@ class AutomacaoOzia:
     def __init__(self):
         self.coordenadas = {}
         self.arquivo_config = "coordenadas.json"
-        self.continuar_automacao = True
+        self.continuar_automacao = Event()
         self.carregar_coordenadas()
         self.listener = None
+
+    def clicar_coordenada(self, x, y):
+        """Clica em uma coordenada específica."""
+        if self.validar_coordenadas(x, y):
+            pyautogui.click(x=x, y=y)
+            return True
+        return False
+
+    def validar_coordenadas(self, x, y):
+        """Valida se as coordenadas são válidas."""
+        return (
+            isinstance(x, (int, float))
+            and isinstance(y, (int, float))
+            and x >= 0
+            and y >= 0
+        )
 
     def carregar_coordenadas(self):
         """Carrega as coordenadas salvas do arquivo JSON"""
@@ -37,9 +54,14 @@ class AutomacaoOzia:
 
     def salvar_coordenadas(self):
         """Salva as coordenadas no arquivo JSON"""
-        with open(self.arquivo_config, "w") as f:
-            json.dump(self.coordenadas, f, indent=4)
-            logger.info("Coordenadas salvas com sucesso!")
+        try:
+            with open(self.arquivo_config, "w") as f:
+                json.dump(self.coordenadas, f, indent=4)
+                logger.info("Coordenadas salvas com sucesso!")
+                return True
+        except Exception as e:
+            logger.error(f"Erro ao salvar coordenadas: {str(e)}")
+            return False
 
     def capturar_coordenadas(self):
         """Permite ao usuário capturar as coordenadas necessárias"""
@@ -71,7 +93,7 @@ class AutomacaoOzia:
     def esperar_verificando_q(self, segundos):
         """Espera o número de segundos especificado, verificando a tecla q"""
         for _ in range(segundos):
-            if not self.continuar_automacao:
+            if not self.continuar_automacao.is_set():
                 return False
             time.sleep(1)
         return True
@@ -80,7 +102,7 @@ class AutomacaoOzia:
         """Executa a automação usando as coordenadas salvas"""
         try:
             # 1. Clicar no último atendimento (5 segundos de delay)
-            if not self.continuar_automacao:
+            if not self.continuar_automacao.is_set():
                 return False
             logger.info("Clicando no último atendimento...")
             pyautogui.click(**self.coordenadas["ultimo_atendimento"])
@@ -90,7 +112,7 @@ class AutomacaoOzia:
                 return False
 
             # 2. Clicar no botão de finalizar (2 segundos de delay)
-            if not self.continuar_automacao:
+            if not self.continuar_automacao.is_set():
                 return False
             logger.info("Clicando no botão de finalizar...")
             pyautogui.click(**self.coordenadas["botao_finalizar"])
@@ -98,7 +120,7 @@ class AutomacaoOzia:
                 return False
 
             # 3. Desmarcar checkbox de mensagem (2 segundos de delay)
-            if not self.continuar_automacao:
+            if not self.continuar_automacao.is_set():
                 return False
             logger.info("Desmarcando checkbox de mensagem...")
             pyautogui.click(**self.coordenadas["checkbox_mensagem"])
@@ -106,7 +128,7 @@ class AutomacaoOzia:
                 return False
 
             # 4. Clicar no botão de confirmar (2 segundos de delay)
-            if not self.continuar_automacao:
+            if not self.continuar_automacao.is_set():
                 return False
             logger.info("Confirmando finalização...")
             pyautogui.click(**self.coordenadas["botao_confirmar"])
@@ -125,7 +147,7 @@ class AutomacaoOzia:
         try:
             if key.char == "q":
                 logger.info("Tecla 'q' pressionada. Finalizando automação...")
-                self.continuar_automacao = False
+                self.continuar_automacao.clear()
                 # Parar o listener
                 return False
         except AttributeError:
@@ -149,13 +171,13 @@ class AutomacaoOzia:
         self.listener = keyboard.Listener(on_press=self.on_press)
         self.listener.start()
 
-        while self.continuar_automacao:
+        while self.continuar_automacao.is_set():
             if self.executar_automacao():
                 print("\nAtendimento finalizado! Aguardando 3 segundos...")
                 if not self.esperar_verificando_q(3):
                     break
             else:
-                if not self.continuar_automacao:
+                if not self.continuar_automacao.is_set():
                     break
                 print("\nOcorreu um erro durante a automação.")
                 resposta = input("Deseja tentar novamente? (s/n): ")
