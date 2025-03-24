@@ -36,20 +36,11 @@ class AutomacaoOzia:
 
     def validar_coordenadas(self, x, y):
         """Valida se as coordenadas são válidas."""
-        return (
-            isinstance(x, (int, float))
-            and isinstance(y, (int, float))
-            and x >= 0
-            and y >= 0
-        )
 
-    def carregar_coordenadas(self):
-        """Carrega as coordenadas salvas do arquivo JSON"""
-        if os.path.exists(self.arquivo_config):
-            with open(self.arquivo_config, "r") as f:
-                self.coordenadas = json.load(f)
-                logger.info("Coordenadas carregadas com sucesso!")
-                return True
+        return (isinstance(x, (int, float))
+                and isinstance(y, (int, float))
+                and x >= 0
+                and y >= 0)
         return False
 
     def salvar_coordenadas(self):
