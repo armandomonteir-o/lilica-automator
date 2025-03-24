@@ -21,7 +21,6 @@
   - [🎓 Conceitos Aplicados](#-conceitos-aplicados)
     - [Python](#python)
     - [GitHub Actions](#github-actions)
-  - [📚 Roadmap de Estudo](#-roadmap-de-estudo)
   - [📄 Licença](#-licença)
   - [👥 Contribuição](#-contribuição)
 
@@ -123,13 +122,13 @@ lilica-automator/
 #### Windows
 
 ```bash
-pyinstaller --noconfirm --onefile --windowed --name="Automacao Ozia" src/gui/automacao_ozia_gui.py --collect-all customtkinter
+pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="Automacao Ozia" src/gui/automacao_ozia_gui.py --collect-all customtkinter
 ```
 
 #### Linux
 
 ```bash
-pyinstaller --noconfirm --onefile --windowed --name="automacao_ozia" src/gui/automacao_ozia_gui.py --collect-all customtkinter
+pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="automacao_ozia" src/gui/automacao_ozia_gui.py --collect-all customtkinter
 ```
 
 ## 🎓 Conceitos Aplicados
@@ -149,10 +148,6 @@ pyinstaller --noconfirm --onefile --windowed --name="automacao_ozia" src/gui/aut
 - Gestão de artifacts e releases
 - Segurança e tokens
 - Workflows condicionais
-
-## 📚 Roadmap de Estudo
-
-Veja o [Roadmap Detalhado](docs/github-actions-roadmap.md) para um guia completo de aprendizado dos conceitos aplicados no projeto.
 
 ## 📄 Licença
 
