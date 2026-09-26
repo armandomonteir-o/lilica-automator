@@ -15,8 +15,9 @@ class TestAutomacaoOzia(unittest.TestCase):
 
     def setUp(self):
         """Configuração inicial para cada teste."""
+        # Sem ligar o sinalizador aqui: quem liga é o código de produção. Ligar no preparo
+        # escondeu por muito tempo que a linha de comando nunca rodava (issue #2).
         self.automacao = AutomacaoOzia()
-        self.automacao.continuar_automacao.set()  # Garante que o evento está setado
         # Garante que o arquivo de coordenadas não existe
         if os.path.exists(self.automacao.arquivo_config):
             os.remove(self.automacao.arquivo_config)
@@ -77,6 +78,25 @@ class TestAutomacaoOzia(unittest.TestCase):
         self.assertFalse(self.automacao.validar_coordenadas(100, -1))
         self.assertFalse(self.automacao.validar_coordenadas("a", 100))
         self.assertFalse(self.automacao.validar_coordenadas(100, "b"))
+
+    @patch("src.core.automacao_ozia.keyboard.Listener")
+    @patch("builtins.input", return_value="")
+    def test_loop_pela_linha_de_comando_executa(self, _input, _listener):
+        """O caminho da linha de comando roda a automação, sem estado preparado pelo teste."""
+        self.assertFalse(self.automacao.continuar_automacao.is_set())
+
+        chamadas = []
+
+        def uma_volta():
+            # Simula a tecla 'q' depois da primeira volta, pra o laço terminar.
+            chamadas.append(1)
+            self.automacao.continuar_automacao.clear()
+            return True
+
+        self.automacao.executar_automacao = uma_volta
+        self.automacao.iniciar_loop_automacao()
+
+        self.assertEqual(len(chamadas), 1)
 
 
 if __name__ == "__main__":
