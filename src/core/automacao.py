@@ -10,7 +10,7 @@ from threading import Event
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("automacao_ozia.log"), logging.StreamHandler()],
+    handlers=[logging.FileHandler("lilica_automator.log"), logging.StreamHandler()],
 )
 logger = logging.getLogger(__name__)
 
@@ -19,7 +19,7 @@ pyautogui.FAILSAFE = True  # Mova o mouse para o canto superior esquerdo para pa
 pyautogui.PAUSE = 0.5  # Pausa entre ações
 
 
-class AutomacaoOzia:
+class Automacao:
     def carregar_coordenadas(self):
         """Carrega as coordenadas salvas do arquivo JSON"""
         if os.path.exists(self.arquivo_config):
@@ -155,12 +155,12 @@ class AutomacaoOzia:
 
     def iniciar_loop_automacao(self):
         """Inicia o loop principal da automação"""
-        print("\n=== Automação Ozia ===")
+        print("\n=== Lilica Automator ===")
         print("ATENÇÃO:")
         print(
             "1. Pressione 'q' ou mova o mouse para o canto superior esquerdo para PARAR"
         )
-        print("2. Certifique-se de que o Ozia.app está aberto e você está logado")
+        print("2. Certifique-se de que o sistema web está aberto e você está logado")
         print("\nA automação vai executar automaticamente a cada 3 segundos.")
         print("Mantenha esta janela visível para poder ler os logs.")
         print("\nPressione 'q' a qualquer momento para parar IMEDIATAMENTE!")
@@ -195,7 +195,7 @@ class AutomacaoOzia:
 
 
 def main():
-    automacao = AutomacaoOzia()
+    automacao = Automacao()
 
     if not automacao.carregar_coordenadas():
         print("\nNenhuma coordenada encontrada!")

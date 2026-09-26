@@ -1,6 +1,6 @@
 # 🤖 Lilica Automator
 
-> Automatização inteligente para serviços da Ozia, com interface gráfica amigável e suporte para Windows e Linux.
+> Automação de tarefas repetitivas em interface web, com interface gráfica amigável e suporte para Windows e Linux.
 
 ## 📋 Índice
 
@@ -38,18 +38,18 @@
 ### Windows
 
 1. Baixe o executável mais recente da [página de releases](https://github.com/armandomonteir-o/lilica-automator/releases)
-2. Execute o arquivo `Automacao-Ozia-Windows.exe`
+2. Execute o arquivo `Lilica-Automator-Windows.exe`
 
 ### Linux
 
 1. Baixe o executável mais recente da [página de releases](https://github.com/armandomonteir-o/lilica-automator/releases)
 2. Dê permissão de execução:
    ```bash
-   chmod +x automacao_ozia_linux
+   chmod +x lilica_automator_linux
    ```
 3. Execute o arquivo:
    ```bash
-   ./automacao_ozia_linux
+   ./lilica_automator_linux
    ```
 
 ## 🎮 Como Usar
@@ -67,9 +67,9 @@
 lilica-automator/
 ├── src/                      # Código fonte
 │   ├── gui/                  # Interface gráfica
-│   │   └── automacao_ozia_gui.py
+│   │   └── automacao_gui.py
 │   ├── core/                 # Lógica principal
-│   │   └── automacao_ozia.py
+│   │   └── automacao.py
 │   └── utils/               # Utilitários
 │       └── coordenadas.json
 ├── scripts/                  # Scripts de inicialização
@@ -122,13 +122,13 @@ lilica-automator/
 #### Windows
 
 ```bash
-pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="Automacao Ozia" src/gui/automacao_ozia_gui.py --collect-all customtkinter
+pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="Lilica Automator" src/gui/automacao_gui.py --collect-all customtkinter
 ```
 
 #### Linux
 
 ```bash
-pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="automacao_ozia" src/gui/automacao_ozia_gui.py --collect-all customtkinter
+pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="lilica_automator" src/gui/automacao_gui.py --collect-all customtkinter
 ```
 
 ## 🎓 Conceitos Aplicados

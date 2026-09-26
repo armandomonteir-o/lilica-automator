@@ -18,7 +18,7 @@ pyautogui.PAUSE = 0.1  # Reduz pausa entre ações
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(message)s",  # Formato simplificado
-    handlers=[logging.FileHandler("automacao_ozia.log"), logging.StreamHandler()],
+    handlers=[logging.FileHandler("lilica_automator.log"), logging.StreamHandler()],
 )
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ pyautogui.FAILSAFE = True
 pyautogui.PAUSE = 0.5
 
 
-class AutomacaoOziaGUI(ctk.CTk):
+class AutomacaoGUI(ctk.CTk):
     def __init__(self):
         super().__init__()
 
@@ -38,7 +38,7 @@ class AutomacaoOziaGUI(ctk.CTk):
         self._cached_widgets = {}
 
         # Configurações da janela
-        self.title("Automação Ozia 🌸")
+        self.title("Lilica Automator 🌸")
         self.geometry("600x800")
 
         # Cores
@@ -143,7 +143,7 @@ class AutomacaoOziaGUI(ctk.CTk):
         # Título
         self.titulo = ctk.CTkLabel(
             self.main_frame,
-            text="Automação Ozia",
+            text="Lilica Automator",
             font=("Helvetica", 24, "bold"),
             text_color=self.rosa_escuro,
         )
@@ -198,7 +198,7 @@ class AutomacaoOziaGUI(ctk.CTk):
             text_color="black",
         )
         self.status_text.pack(pady=20, padx=20)
-        self.adicionar_log("Bem-vinda ao Automatizador Ozia! 🌸\n")
+        self.adicionar_log("Bem-vinda ao Lilica Automator! 🌸\n")
         self.status_text.configure(state="disabled")
 
         # Frame para botões
@@ -474,5 +474,5 @@ class AutomacaoOziaGUI(ctk.CTk):
 
 
 if __name__ == "__main__":
-    app = AutomacaoOziaGUI()
+    app = AutomacaoGUI()
     app.mainloop()

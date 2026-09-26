@@ -4,7 +4,7 @@ import tkinter as tk
 import threading
 import time
 import pyautogui
-from src.gui.automacao_ozia_gui import AutomacaoOziaGUI
+from src.gui.automacao_gui import AutomacaoGUI
 
 
 class TestInterface(unittest.TestCase):
@@ -12,7 +12,7 @@ class TestInterface(unittest.TestCase):
     def setUpClass(cls):
         """Configuração inicial para todos os testes."""
         cls.root = tk.Tk()
-        cls.interface = AutomacaoOziaGUI()
+        cls.interface = AutomacaoGUI()
 
     @classmethod
     def tearDownClass(cls):

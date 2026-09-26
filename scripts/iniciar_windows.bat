@@ -17,6 +17,6 @@ echo.
 echo Setup concluído! 
 echo Para usar a automação:
 echo 1. Abra o Chrome normalmente
-echo 2. Execute "python automacao_ozia.py"
+echo 2. Execute "python src/core/automacao.py"
 echo.
 pause 

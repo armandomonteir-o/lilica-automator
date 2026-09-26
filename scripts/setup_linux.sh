@@ -21,7 +21,7 @@ sudo apt-get install -y python3-tk python3-dev
 echo "Setup concluído!"
 echo
 echo "Para usar a automação:"
-echo "1. Abra o Chrome normalmente e faça login no Ozia.app"
-echo "2. Execute: python automacao_ozia.py"
+echo "1. Abra o Chrome normalmente e faça login no sistema web"
+echo "2. Execute: python src/core/automacao.py"
 echo "3. Na primeira vez, o script vai pedir para você posicionar o mouse em cada elemento"
 echo "4. Nas próximas vezes, ele já vai usar as coordenadas salvas" 
