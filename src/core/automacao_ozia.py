@@ -167,6 +167,10 @@ class AutomacaoOzia:
 
         input("\nPressione Enter para começar...")
 
+        # Liga o sinalizador aqui, no núcleo: sem isso o laço abaixo sai na primeira
+        # verificação e a linha de comando nunca roda (issue #2). A tecla 'q' desliga.
+        self.continuar_automacao.set()
+
         # Inicia o listener de teclado em uma thread separada
         self.listener = keyboard.Listener(on_press=self.on_press)
         self.listener.start()
