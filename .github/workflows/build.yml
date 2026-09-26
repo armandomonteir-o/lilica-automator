@@ -103,12 +103,12 @@ jobs:
 
       - name: Create Windows Executable
         run: |
-          pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="Automacao Ozia" src/gui/automacao_ozia_gui.py --add-data "version.txt;." --add-data "src/utils/coordenadas.json;." --collect-all customtkinter --clean --strip --noupx
+          pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="Lilica Automator" src/gui/automacao_gui.py --add-data "version.txt;." --add-data "src/utils/coordenadas.json;." --collect-all customtkinter --clean --strip --noupx
 
       - name: Upload Windows Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Automacao-Ozia-Windows
+          name: Lilica-Automator-Windows
           path: dist/
 
   build-linux:
@@ -139,12 +139,12 @@ jobs:
 
       - name: Create Linux Executable
         run: |
-          pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="automacao_ozia" src/gui/automacao_ozia_gui.py --add-data "version.txt:." --add-data "src/utils/coordenadas.json:." --collect-all customtkinter --clean --strip --noupx
+          pyinstaller --noconfirm --onefile --windowed --icon=icon.ico --name="lilica_automator" src/gui/automacao_gui.py --add-data "version.txt:." --add-data "src/utils/coordenadas.json:." --collect-all customtkinter --clean --strip --noupx
 
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Automacao-Ozia-Linux
+          name: Lilica-Automator-Linux
           path: dist/
 
   create-release:
@@ -156,12 +156,12 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: Automacao-Ozia-Windows
+          name: Lilica-Automator-Windows
           path: windows-dist
 
       - uses: actions/download-artifact@v4
         with:
-          name: Automacao-Ozia-Linux
+          name: Lilica-Automator-Linux
           path: linux-dist
 
       - name: Display structure of downloaded files
@@ -184,8 +184,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./windows-dist/Automacao Ozia.exe
-          asset_name: Automacao-Ozia-Windows.exe
+          asset_path: ./windows-dist/Lilica Automator.exe
+          asset_name: Lilica-Automator-Windows.exe
           asset_content_type: application/octet-stream
 
       - name: Upload Linux Asset
@@ -194,6 +194,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./linux-dist/automacao_ozia
-          asset_name: automacao_ozia_linux
+          asset_path: ./linux-dist/lilica_automator
+          asset_name: lilica_automator_linux
           asset_content_type: application/octet-stream

@@ -7,17 +7,17 @@ import json
 # Adiciona o diretório src ao PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src.core.automacao_ozia import AutomacaoOzia
+from src.core.automacao import Automacao
 
 
-class TestAutomacaoOzia(unittest.TestCase):
+class TestAutomacao(unittest.TestCase):
     """Testes para a classe core da automação."""
 
     def setUp(self):
         """Configuração inicial para cada teste."""
         # Sem ligar o sinalizador aqui: quem liga é o código de produção. Ligar no preparo
         # escondeu por muito tempo que a linha de comando nunca rodava (issue #2).
-        self.automacao = AutomacaoOzia()
+        self.automacao = Automacao()
         # Garante que o arquivo de coordenadas não existe
         if os.path.exists(self.automacao.arquivo_config):
             os.remove(self.automacao.arquivo_config)
@@ -79,7 +79,7 @@ class TestAutomacaoOzia(unittest.TestCase):
         self.assertFalse(self.automacao.validar_coordenadas("a", 100))
         self.assertFalse(self.automacao.validar_coordenadas(100, "b"))
 
-    @patch("src.core.automacao_ozia.keyboard.Listener")
+    @patch("src.core.automacao.keyboard.Listener")
     @patch("builtins.input", return_value="")
     def test_loop_pela_linha_de_comando_executa(self, _input, _listener):
         """O caminho da linha de comando roda a automação, sem estado preparado pelo teste."""

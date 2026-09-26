@@ -9,7 +9,7 @@ datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
 
 
 a = Analysis(
-    ['src/gui/automacao_ozia_gui.py'],
+    ['src/gui/automacao_gui.py'],
     pathex=[],
     binaries=binaries,
     datas=datas,
@@ -29,7 +29,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='automacao_ozia',
+    name='lilica_automator',
     debug=False,
     bootloader_ignore_signals=False,
     strip=True,
